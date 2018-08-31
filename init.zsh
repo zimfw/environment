@@ -42,11 +42,14 @@ fi
 
 # sets the window title and updates upon directory change
 # more work probably needs to be done here to support multiplexers
-if (( ${+ztermtitle} )); then
+local ztermtitle
+zstyle -s ':zim:environment' termtitle 'ztermtitle'
+if [[ -n ${ztermtitle} ]]; then
   case ${TERM} in
     xterm*|*rxvt)
-      precmd() { print -Pn "\e]0;${ztermtitle}\a" }
-      precmd  # we execute it once to initialize the window title
+      eval "termtitle_precmd() { print -Pn '\e]0;${ztermtitle}\a' }"
+      autoload -Uz add-zsh-hook && add-zsh-hook precmd termtitle_precmd
+      termtitle_precmd  # we execute it once to initialize the window title
       ;;
   esac
 fi

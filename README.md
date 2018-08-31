@@ -5,7 +5,15 @@ Sets generic zsh built-in environment options.
 
 Also enables smart URL-pasting. This prevents the user from having to manually escape URLs.
 
-Uses `.zimrc` defined `${ztermtitle}` variable to set the terminal title, if defined.
+Settings
+--------
+
+You can set a custom terminal title containing [prompt expansion
+strings](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes),
+that is redrawn upon directory change. The example below sets the title to show
+the current directory name:
+
+    zstyle ':zim:environment' termtitle '%1~'
 
 zsh options
 -----------
