@@ -1,7 +1,7 @@
 environment
 ===========
 
-Sets generic zsh built-in environment options.
+Sets generic Zsh built-in environment options.
 
 Also enables smart URL-pasting. This prevents the user from having to manually escape URLs.
 
@@ -15,7 +15,7 @@ the current directory name:
 
     zstyle ':zim:environment' termtitle '%1~'
 
-zsh options
+Zsh options
 -----------
 
   * `AUTO_RESUME` resumes an existing job before creating a new one.
