@@ -8,8 +8,7 @@ Also enables smart URL-pasting. This prevents the user from having to manually e
 Settings
 --------
 
-You can set a custom terminal title containing [prompt expansion
-strings](http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes),
+You can set a custom terminal title containing [prompt expansion escape sequences],
 that is redrawn upon directory change. The example below sets the title to show
 the current directory name:
 
@@ -25,3 +24,5 @@ Zsh options
   * `NO_BG_NICE` prevents background jobs being given a lower priority.
   * `NO_CHECK_JOBS` prevents status report of jobs on shell exit.
   * `NO_HUP` prevents SIGHUP to jobs on shell exit.
+
+[prompt expansion escape sequences]: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
