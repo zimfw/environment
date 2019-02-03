@@ -47,9 +47,6 @@ setopt EXTENDED_GLOB
 # History
 #
 
-# Perform textual history expansion, csh-style, treating the character ‘!’ specially.
-setopt BANG_HIST
-
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
@@ -88,10 +85,6 @@ setopt AUTO_RESUME
 # List jobs in verbose format by default.
 setopt LONG_LIST_JOBS
 
-# Report the status of background jobs immediately, rather than waiting until
-# just before printing a prompt.
-setopt NOTIFY
-
 # Prevent background jobs being given a lower priority.
 setopt NO_BG_NICE
 
@@ -100,13 +93,6 @@ setopt NO_CHECK_JOBS
 
 # Prevent SIGHUP to jobs on shell exit.
 setopt NO_HUP
-
-#
-# Scripts and functions
-#
-
-# Perform implicit tees or cats when multiple redirections are attempted.
-setopt MULTIOS
 
 
 # Set less or more as the default pager.
