@@ -8,11 +8,9 @@ Also enables smart URL-pasting. This prevents the user from having to manually e
 Settings
 --------
 
-You can set a custom terminal title containing [prompt expansion escape sequences],
-that is redrawn upon directory change. The example below sets the title to show
-the current directory name:
+You can set a custom terminal title containing [prompt expansion escape sequences], that is redrawn before and after any command is executed. The example below sets the title to show the current directory name and command running in the terminal:
 
-    zstyle ':zim:environment' termtitle '%1~'
+    zstyle ':zim:environment' termtitle '%1~ $1'
 
 Zsh options
 -----------

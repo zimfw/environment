@@ -40,17 +40,18 @@ if (( ! ${+PAGER} )); then
   fi
 fi
 
-# sets the window title and updates upon directory change
+# sets the window title and updates before and after execution of commands
 # more work probably needs to be done here to support multiplexers
 case ${TERM} in
   xterm*|*rxvt)
-    termtitle_chpwd() {
+    termtitle_update() {
       local ztermtitle
       if zstyle -s ':zim:environment' termtitle 'ztermtitle'; then
         print -Pn "\e]0;${ztermtitle}\a"
       fi
     }
-    autoload -Uz add-zsh-hook && add-zsh-hook chpwd termtitle_chpwd
-    termtitle_chpwd  # we execute it once to initialize the window title
+    autoload -Uz add-zsh-hook \
+      && add-zsh-hook precmd termtitle_update \
+      && add-zsh-hook preexec termtitle_update
     ;;
 esac
