@@ -2,21 +2,6 @@
 # Generic options and environment settings
 #
 
-# Use smart URL pasting and escaping.
-autoload -Uz bracketed-paste-url-magic && zle -N bracketed-paste bracketed-paste-url-magic
-autoload -Uz url-quote-magic && zle -N self-insert url-quote-magic
-
-# The file to save the history in.
-: ${HISTFILE="${ZDOTDIR:-${HOME}}/.zhistory"}
-
-# The maximum number of events stored in the internal history list and in the history file.
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Remove path separtor from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
-
-
 #
 # Changing directories
 #
@@ -47,6 +32,13 @@ setopt EXTENDED_GLOB
 # History
 #
 
+# The file to save the history in.
+: ${HISTFILE=${ZDOTDIR:-${HOME}}/.zhistory}
+
+# The maximum number of events stored internally and saved in the history file.
+HISTSIZE=10000
+SAVEHIST=10000
+
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
@@ -75,6 +67,9 @@ setopt INTERACTIVE_COMMENTS
 # Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
 setopt NO_CLOBBER
 
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
 #
 # Job control
 #
@@ -93,28 +88,3 @@ setopt NO_CHECK_JOBS
 
 # Prevent SIGHUP to jobs on shell exit.
 setopt NO_HUP
-
-
-# Set less or more as the default pager.
-if (( ! ${+PAGER} )); then
-  if (( ${+commands[less]} )); then
-    export PAGER=less
-  else
-    export PAGER=more
-  fi
-fi
-
-# sets the window title and updates upon directory change
-# more work probably needs to be done here to support multiplexers
-case ${TERM} in
-  xterm*|*rxvt)
-    termtitle_chpwd() {
-      local ztermtitle
-      if zstyle -s ':zim:environment' termtitle 'ztermtitle'; then
-        print -Pn "\e]0;${ztermtitle}\a"
-      fi
-    }
-    autoload -Uz add-zsh-hook && add-zsh-hook chpwd termtitle_chpwd
-    termtitle_chpwd  # we execute it once to initialize the window title
-    ;;
-esac
