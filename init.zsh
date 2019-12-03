@@ -39,17 +39,14 @@ setopt EXTENDED_GLOB
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
+# Don't display duplicates when searching the history.
+setopt HIST_FIND_NO_DUPS
 
 # Don't enter immediate duplicates into the history.
 setopt HIST_IGNORE_DUPS
 
 # Remove commands from the history that begin with a space.
 setopt HIST_IGNORE_SPACE
-
-# When writing out the history file, older commands that duplicate newer ones are omitted.
-setopt HIST_SAVE_NO_DUPS
 
 # Don't execute the command directly upon history expansion.
 setopt HIST_VERIFY
@@ -66,9 +63,6 @@ setopt INTERACTIVE_COMMENTS
 
 # Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
 setopt NO_CLOBBER
-
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
 
 #
 # Job control
