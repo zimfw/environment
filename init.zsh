@@ -68,9 +68,6 @@ setopt NO_CLOBBER
 # Job control
 #
 
-# Resume an existing job before creating a new one.
-setopt AUTO_RESUME
-
 # List jobs in verbose format by default.
 setopt LONG_LIST_JOBS
 

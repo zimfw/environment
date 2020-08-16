@@ -41,7 +41,6 @@ Zsh options
 
 ### Job control
 
-  * `AUTO_RESUME` resumes an existing job before creating a new one.
   * `LONG_LIST_JOBS` lists jobs in verbose format by default.
   * `NO_BG_NICE` prevents background jobs being given a lower priority.
   * `NO_CHECK_JOBS` prevents status report of jobs on shell exit.
