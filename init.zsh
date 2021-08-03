@@ -33,11 +33,11 @@ setopt EXTENDED_GLOB
 #
 
 # The file to save the history in.
-: ${HISTFILE=${ZDOTDIR:-${HOME}}/.zhistory}
+if (( ! ${+HISTFILE} )) typeset -g HISTFILE=${ZDOTDIR:-${HOME}}/.zhistory
 
 # The maximum number of events stored internally and saved in the history file.
 # The former is greater than the latter in case user wants HIST_EXPIRE_DUPS_FIRST.
-HISTSIZE=11000
+HISTSIZE=20000
 SAVEHIST=10000
 
 # Don't display duplicates when searching the history.
