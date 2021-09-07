@@ -6,10 +6,14 @@ Sets sane Zsh built-in environment options.
 Settings
 --------
 
-By default, the history is set to be saved in `${ZDOTDIR:-${HOME}}/.zhistory`.
+If `HISTFILE` is not set, the history is set to be saved in `${ZDOTDIR:-${HOME}}/.zhistory`.
 The file path can be customized with:
 
     HISTFILE=/path/to/.zsh_history
+
+Some Zsh installations already have a value set for `HISTFILE`. E.g. the `/etc/zshrc`
+file in macOS sets it to `${ZDOTDIR:-$HOME}/.zsh_history`, so you'll have to set
+your own value in your `~/.zshrc` if you want to customize it.
 
 Zsh options
 -----------
