@@ -22,6 +22,7 @@ Zsh options
 
   * `AUTO_CD` performs cd to a directory if the typed command is invalid, but is a directory.
   * `AUTO_PUSHD` makes cd push the old directory to the directory stack.
+  * `CD_SILENT` does not print the working directory after a cd.
   * `PUSHD_IGNORE_DUPS` does not push multiple copies of the same directory to the stack.
   * `PUSHD_SILENT` does not print the directory stack after pushd or popd.
   * `PUSHD_TO_HOME` has pushd without arguments act like `pushd ${HOME}`.
