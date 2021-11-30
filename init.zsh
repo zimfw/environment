@@ -12,8 +12,10 @@ setopt AUTO_CD
 # Make cd push the old directory to the directory stack.
 setopt AUTO_PUSHD
 
-# Don't print the working directory after a cd.
-setopt CD_SILENT
+autoload -Uz is-at-least && if is-at-least 5.8; then
+  # Don't print the working directory after a cd.
+  setopt CD_SILENT
+fi
 
 # Don't push multiple copies of the same directory to the stack.
 setopt PUSHD_IGNORE_DUPS
